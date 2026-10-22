@@ -8,4 +8,14 @@ import androidx.compose.runtime.Composable
 fun FormIsian(
     jenisK:List<string> = listOf("Laki-laki", "Perempuan"),
     OnSubmitBtnClick: () -> Unit,
-)
+) {
+    Scaffold (modifier=Modifier,
+        topBar = {
+            TopAppBar(
+                title = {Text(stringResource(id=R.string.home), Color.White)},
+                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                    containerColor = colorResource(id = R.color.teal_700)
+                )
+            )
+        })
+}
