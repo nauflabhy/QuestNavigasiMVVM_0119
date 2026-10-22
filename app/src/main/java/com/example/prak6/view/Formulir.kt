@@ -40,8 +40,19 @@ fun FormIsian(
             HorizontalDivier(modifier = Modifier
                 .padding( all = 20.dp)
                 .width(250.dp), thickness = Thickness,color = Color.Red)
+            Row{
+                jenisK.forEach {
+                    item ->
+                    Row(verticalAligment = Aligment.CenterVertically){
+                        RadioButton(
+                            select = false,
+                            onClick = {item}
+                        )
+                    }
+                }
+            }
 
-            )
+
         }
 
     }
