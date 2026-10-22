@@ -18,6 +18,17 @@ fun FormIsian(
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = colorResource(id = R.color.teal_700)
                 )
+            ) }
+    ){ isiRuang ->
+        Column(modifier = Modifier.padding( paddingValue = isiRuang),
+            verticalArrangement = Arangement.Top,
+            horizontalAligment = Aligment.CenterHorizontally) {
+            OutlineTextField(
+                value = "",
+                singleLine = true,
+                modifier = Modifier
             )
-        })
+        }
+
+    }
 }
