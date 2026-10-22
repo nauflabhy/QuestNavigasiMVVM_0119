@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun FormIsian(
     jenisK:List<string> = listOf("Laki-laki", "Perempuan"),
-    OnSubmitBtnClick: () -> Unit,
+    OnSubmitBtnClick: () -> Unit
 ) {
     Scaffold (modifier= Modifier,
         topBar = {
