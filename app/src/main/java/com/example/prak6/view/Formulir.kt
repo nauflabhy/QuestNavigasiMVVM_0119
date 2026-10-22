@@ -37,6 +37,11 @@ fun FormIsian(
                 label = {Text(text = "Nama Lengkap")},
                 onValueChange = {},
             )
+            HorizontalDivier(modifier = Modifier
+                .padding( all = 20.dp)
+                .width(250.dp), thickness = Thickness,color = Color.Red)
+
+            )
         }
 
     }
