@@ -1,7 +1,6 @@
 package com.example.prak6.view
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,12 +20,17 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.ui.Alignment
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.RadioButton
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormIsian(
-    jenisK:List<string> = listOf("Laki-laki", "Perempuan"),
-    OnSubmitBtnClick: () -> Unit
+    jenisK:List<String> = listOf("Laki-laki","Perempuan"),
+    OnSubmitBtnClick: (String, String, String) -> Unit
 ) {
     Scaffold (modifier= Modifier,
         topBar = {
@@ -38,8 +42,8 @@ fun FormIsian(
             ) }
     ){ isiRuang ->
         Column(modifier = Modifier.padding( paddingValue = isiRuang),
-            verticalArrangement = Arangement.Top,
-            horizontalAligment = Aligment.CenterHorizontally) {
+            verticalArrangement = Arrangement.Top,
+            horizontalAligment = Alignment.CenterHorizontally) {
             OutlineTextField(
                 value = "",
                 singleLine = true,
@@ -55,7 +59,7 @@ fun FormIsian(
             Row{
                 jenisK.forEach {
                     item ->
-                    Row(verticalAligment = Aligment.CenterVertically){
+                    Row(verticalAligment = Alignment.CenterVertically){
                         RadioButton(
                             select = false,
                             onClick = {item}
@@ -83,7 +87,7 @@ fun FormIsian(
             Button(
                 modifier = Modifier.fillMaxWidth( fraction = 1f )
                     .padding(all = 25.dp),
-                onClick = OnSubmitBtnClick
+                onClick = OnSubmitBtnClick(inputNama, SelectJk, inputAlamat)
             ){
                 Text(stringResource(id = R.string.submit))
             }

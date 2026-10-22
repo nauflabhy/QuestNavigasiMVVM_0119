@@ -14,11 +14,15 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.R
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.compose.material3.Text
+import androidx.compose.material3.Button
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,14 +44,14 @@ fun TampilData(
         Column(modifier = Modifier.padding( paddingValues = isiRuang),
             verticalArrangement = Arrangement.SpaceBetween) {
             Column(modifier = Modifier.padding( all = dimensionResource(id = R.dimen.padding_medium)),
-                verticalArrangement = Arrangeent.spaceBy (dimensionResource(id = R.dimen.padding_small))) {
+                verticalArrangement = Arrangement.spacedBy (dimensionResource(id = R.dimen.padding_small))) {
                 items.forEach { item ->
                     Column {
                         Text(text = item.first.uppercase(), fontSize = 16.sp)
                         Text(
                             text = item.second,
                             fontWeigth = FontWeight.Bold,
-                            fontFamily = fontFamily.Cursive,
+                            fontFamily = FontFamily.Cursive,
                             fontSize = 22.sp
                         )
                     }
