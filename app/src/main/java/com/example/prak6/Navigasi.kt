@@ -1,9 +1,15 @@
 package com.example.prak6
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.prak6.view.FormIsian
+import com.example.prak6.view.TampilData
 
 enum class Navigasi {
     FormulirSaya,
@@ -16,21 +22,20 @@ fun DataApp(
 ) {
     Scaffold { isiRuang ->
         NavHost(
-            navController = NavController,
+            navController = navController,
             startDestination = Navigasi.FormulirSaya.name,
-
-            modifier = Modifier.padding(paddingValues = isiRuang)) {
+            modifier = Modifier.padding(paddingValues = isiRuang)
+        ) {
             composable(route = Navigasi.FormulirSaya.name) {
-            FormIsian(
-                //pilihanJK = JenisK.map { id -> context.resources.getString(id) },
-                onSubmitBtnClick = {
-                    navController.navigate( route = Navigasi.Detail.name)
+                FormIsian(
+                    onSubmitBtnClick = { _, _, _ ->
+                        navController.navigate(route = Navigasi.Detail.name)
                     }
                 )
             }
             composable(route = Navigasi.Detail.name) {
                 TampilData(
-                    onBackBtnClick = {cancelAndBackToFormulirSaya(navController)}
+                    onBackBtnClick = { cancelAndBackToFormulirSaya(navController) }
                 )
             }
         }
@@ -40,5 +45,5 @@ fun DataApp(
 private fun cancelAndBackToFormulirSaya(
     navController: NavHostController
 ) {
-    navController.popBackStack( route = Navigasi.FormulirSaya.name, inclusive = false)
+    navController.popBackStack(route = Navigasi.FormulirSaya.name, inclusive = false)
 }
