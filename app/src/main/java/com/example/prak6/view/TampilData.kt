@@ -28,12 +28,15 @@ import com.example.prak6.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TampilData(
+    nama: String,
+    jenisKelamin: String,
+    alamat: String,
     onBackBtnClick: () -> Unit
 ) {
     val items = listOf(
-        Pair(stringResource(id = R.string.nama_lengkap), "Contoh Nama"),
-        Pair(stringResource(id = R.string.jenis_kelamin), "Lainnya"),
-        Pair(stringResource(id = R.string.alamat), "Yogyakarta")
+        Pair(stringResource(id = R.string.nama_lengkap), nama),
+        Pair(stringResource(id = R.string.jenis_kelamin), jenisKelamin),
+        Pair(stringResource(id = R.string.alamat), alamat)
     )
     Scaffold(
         modifier = Modifier,
